@@ -26,6 +26,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
 
         //adding comment2
+        //test2
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
 
         val adapter = MovieAdapter()
