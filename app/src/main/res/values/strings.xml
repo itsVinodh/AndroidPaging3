@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Movie App</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="failed_to_load">Failed to Load</string>
+    <string name="try_again">Try Again</string>
+    <string name="result_load_text">Result could not be loaded</string>
+</resources>

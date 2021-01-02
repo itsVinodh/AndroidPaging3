@@ -1,0 +1,77 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+apply plugin: 'dagger.hilt.android.plugin'
+
+
+android {
+    compileSdkVersion build_versions.compile_sdk
+    buildToolsVersion build_versions.build_tools
+
+    defaultConfig {
+        applicationId "com.example.daggermvvmsample"
+        minSdkVersion build_versions.min_sdk
+        targetSdkVersion build_versions.target_sdk
+        versionCode 1
+        versionName "1.0"
+        multiDexEnabled true
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        buildConfigField "String", "API_KEY","\"cedb8cbe15467b907f39791c540d5d31\""
+        buildConfigField "String", "BASE_URL","\"https://api.themoviedb.org/3/\""
+
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = "1.8"
+    }
+
+    kapt {
+        generateStubs = true
+    }
+
+    buildFeatures {
+        dataBinding = true
+    }
+
+}
+
+dependencies {
+    implementation fileTree(dir: "libs", include: ["*.jar"])
+    implementation deps.kotlin.stdlib
+    implementation deps.core_ktx
+    implementation deps.app_compat
+    implementation deps.constraint_layout
+    implementation deps.legacy_support
+    implementation deps.fragment_ktx
+    testImplementation deps.junit
+    androidTestImplementation deps.ext_junit
+    androidTestImplementation deps.espresso.core
+    implementation deps.retrofit.runtime
+    implementation deps.retrofit.gson
+    implementation deps.retrofit.adapter
+    implementation deps.retrofit.interceptor
+    implementation deps.retrofit.okhttp
+    implementation deps.lifecycle.livedata_ktx
+    implementation deps.lifecycle.viewmodel_ktx
+    implementation deps.coroutines.core
+    implementation deps.coroutines.android
+    implementation deps.dagger.hilt
+    implementation deps.dagger.hilt_viewmodel
+    kapt deps.dagger.hilt_android_compiler
+    kapt deps.dagger.hilt_compiler
+    implementation deps.glide.glide
+    kapt deps.glide.compiler
+    implementation deps.paging.runtime
+}
