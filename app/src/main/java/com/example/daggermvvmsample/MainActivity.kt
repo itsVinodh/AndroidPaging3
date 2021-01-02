@@ -17,7 +17,7 @@ import kotlinx.coroutines.launch
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
 
-    //added Comment latest
+    //added Comment
 
     private val viewModel by viewModels<MovieViewModel>()
     private lateinit var binding: ActivityMainBinding
@@ -25,6 +25,9 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        //adding comment2
+        //test2
+        //adding changes
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
 
         val adapter = MovieAdapter()
